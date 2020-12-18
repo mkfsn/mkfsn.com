@@ -1,18 +1,22 @@
 <script>
-    /* component logic will go here */
+    import Nav from "./components/Nav.svelte";
+    import Tailwind from './Tailwind.svelte';
+    import Card from "./components/Card.svelte";
 </script>
 
-<div class="App">
-    <header class="App-header">
-        <a class="App-link"
-           href="https://svelte.dev"
-           target="_blank"
-           rel="noopener noreferrer">
-            Learn Svelte
-        </a>
-    </header>
-</div>
+<main class="App">
+    <Nav/>
+    <div class="flex items-center justify-center m-24">
+        <Card/>
+    </div>
+</main>
 
 <style>
-    /* css will go here */
+    .App {
+        background-color: rgba(13,110,253,.88);
+        min-height: 100vh;
+        background-image: url("/images/bg.jpg");
+        background-size: cover;
+        background-blend-mode: screen;
+    }
 </style>
