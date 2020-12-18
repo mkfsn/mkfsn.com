@@ -4,14 +4,29 @@ import {
 	SvelteComponent,
 	append,
 	attr,
+	create_component,
+	destroy_component,
 	detach,
 	element,
 	init,
 	insert,
+	mount_component,
 	noop,
 	safe_not_equal,
-	space
+	space,
+	text,
+	transition_in,
+	transition_out
 } from "../../web_modules/svelte/internal.js";
+
+import Icon from "../../web_modules/svelte-awesome.js";
+
+import {
+	twitterSquare,
+	linkedinSquare,
+	githubSquare,
+	mapMarker
+} from "../../web_modules/svelte-awesome/icons.js";
 
 function create_fragment(ctx) {
 	let figure;
@@ -19,8 +34,39 @@ function create_fragment(ctx) {
 	let img_src_value;
 	let t0;
 	let figcaption;
+	let div0;
+	let h2;
+	let t4;
+	let h5;
+	let a0;
+	let icon0;
+	let t5;
 	let t6;
+	let div1;
+	let a1;
+	let icon1;
+	let t7;
+	let a2;
+	let icon2;
+	let t8;
+	let a3;
+	let icon3;
+	let t9;
 	let p;
+	let current;
+	icon0 = new Icon({ props: { scale: "1.5", data: mapMarker } });
+
+	icon1 = new Icon({
+			props: { scale: "1.5", data: twitterSquare }
+		});
+
+	icon2 = new Icon({
+			props: { scale: "1.5", data: githubSquare }
+		});
+
+	icon3 = new Icon({
+			props: { scale: "1.5", data: linkedinSquare }
+		});
 
 	return {
 		c() {
@@ -28,12 +74,28 @@ function create_fragment(ctx) {
 			img = element("img");
 			t0 = space();
 			figcaption = element("figcaption");
+			div0 = element("div");
+			h2 = element("h2");
 
-			figcaption.innerHTML = `<div class="pt-6 space-y-4 text-center"><h2 class="text-3xl"><span class="font-medium">Pei-Ming Wu</span> 
-                <span class="text-xl">aka mkfsn</span></h2> 
-            <h5>Software Engineer, Taiwan</h5></div>`;
+			h2.innerHTML = `<span class="font-medium">Pei-Ming Wu</span> 
+                <span class="text-xl">aka mkfsn</span>`;
 
+			t4 = space();
+			h5 = element("h5");
+			a0 = element("a");
+			create_component(icon0.$$.fragment);
+			t5 = text(" Taiwan");
 			t6 = space();
+			div1 = element("div");
+			a1 = element("a");
+			create_component(icon1.$$.fragment);
+			t7 = space();
+			a2 = element("a");
+			create_component(icon2.$$.fragment);
+			t8 = space();
+			a3 = element("a");
+			create_component(icon3.$$.fragment);
+			t9 = space();
 			p = element("p");
 			p.textContent = `© ${/*this_year*/ ctx[0]}`;
 			attr(img, "class", "rounded-full mx-auto shadow-lg -mt-16");
@@ -41,7 +103,22 @@ function create_fragment(ctx) {
 			attr(img, "alt", "");
 			attr(img, "width", "100");
 			attr(img, "height", "100");
-			attr(p, "class", "text-center mt-5 pt-20");
+			attr(h2, "class", "text-3xl");
+			attr(a0, "class", "pl-2");
+			attr(a0, "target", "_blank");
+			attr(a0, "href", "https://www.google.com.tw/maps/place/%E5%8F%B0%E7%81%A3/");
+			attr(div0, "class", "pt-6 space-y-4 text-center");
+			attr(a1, "class", "pl-1");
+			attr(a1, "target", "_blank");
+			attr(a1, "href", "//twitter.com/mkfsn");
+			attr(a2, "class", "pl-1");
+			attr(a2, "target", "_blank");
+			attr(a2, "href", "//github.com/mkfsn");
+			attr(a3, "class", "pl-1");
+			attr(a3, "target", "_blank");
+			attr(a3, "href", "//linkedin.com/in/mkfsn");
+			attr(div1, "class", "text-center pt-5");
+			attr(p, "class", "text-center mt-5 pt-12");
 			attr(figure, "class", "bg-white rounded-xl p-4 card svelte-lcomsk");
 		},
 		m(target, anchor) {
@@ -49,14 +126,49 @@ function create_fragment(ctx) {
 			append(figure, img);
 			append(figure, t0);
 			append(figure, figcaption);
-			append(figure, t6);
+			append(figcaption, div0);
+			append(div0, h2);
+			append(div0, t4);
+			append(div0, h5);
+			append(h5, a0);
+			mount_component(icon0, a0, null);
+			append(a0, t5);
+			append(figcaption, t6);
+			append(figcaption, div1);
+			append(div1, a1);
+			mount_component(icon1, a1, null);
+			append(div1, t7);
+			append(div1, a2);
+			mount_component(icon2, a2, null);
+			append(div1, t8);
+			append(div1, a3);
+			mount_component(icon3, a3, null);
+			append(figure, t9);
 			append(figure, p);
+			current = true;
 		},
 		p: noop,
-		i: noop,
-		o: noop,
+		i(local) {
+			if (current) return;
+			transition_in(icon0.$$.fragment, local);
+			transition_in(icon1.$$.fragment, local);
+			transition_in(icon2.$$.fragment, local);
+			transition_in(icon3.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(icon0.$$.fragment, local);
+			transition_out(icon1.$$.fragment, local);
+			transition_out(icon2.$$.fragment, local);
+			transition_out(icon3.$$.fragment, local);
+			current = false;
+		},
 		d(detaching) {
 			if (detaching) detach(figure);
+			destroy_component(icon0);
+			destroy_component(icon1);
+			destroy_component(icon2);
+			destroy_component(icon3);
 		}
 	};
 }

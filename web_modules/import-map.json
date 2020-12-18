@@ -1,5 +1,7 @@
 {
   "imports": {
+    "svelte-awesome": "./svelte-awesome.js",
+    "svelte-awesome/icons": "./svelte-awesome/icons.js",
     "svelte/internal": "./svelte/internal.js"
   }
 }
