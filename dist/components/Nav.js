@@ -17,10 +17,10 @@ function create_fragment(ctx) {
 		c() {
 			nav = element("nav");
 
-			nav.innerHTML = `<div class="px-4"><div class="flex justify-center items-center"><div class="flex"><a class="p-2 text-gray-500" href="/blog">Blog</a> 
-                <a class="p-2 text-gray-500" href="/resume">Resume</a></div></div></div>`;
+			nav.innerHTML = `<div class="px-4"><div class="flex justify-center items-center"><div class="flex"><a class="flex-1 px-2 py-4 text-gray-500 hover:bg-gray-300 hover:text-gray-800" href="//mkfsn.github.io/blog">Blog</a> 
+                <a class="flex-1 px-2 py-4 text-gray-500 hover:bg-gray-300 hover:text-gray-800" href="//mkfsn.github.io/resume">Resume</a></div></div></div>`;
 
-			attr(nav, "class", "py-2 bg-gray-50");
+			attr(nav, "class", "bg-gray-50");
 		},
 		m(target, anchor) {
 			insert(target, nav, anchor);
