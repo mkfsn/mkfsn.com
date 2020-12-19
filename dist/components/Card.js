@@ -119,7 +119,7 @@ function create_fragment(ctx) {
 			attr(a3, "href", "//linkedin.com/in/mkfsn");
 			attr(div1, "class", "text-center pt-5");
 			attr(p, "class", "text-center mt-5 pt-12");
-			attr(figure, "class", "bg-white rounded-xl p-4 card svelte-lcomsk");
+			attr(figure, "class", "bg-white rounded-xl p-4 card svelte-rxmssb");
 		},
 		m(target, anchor) {
 			insert(target, figure, anchor);
