@@ -37,6 +37,6 @@
     .card {
         width: 50vw;
         max-width: 600px;
-        min-width: 350px;
+        min-width: 300px;
     }
 </style>
